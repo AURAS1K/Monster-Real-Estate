@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dca72v0g7howy"]
+
+[ext_resource type="PackedScene" uid="uid://cpaue3amuvkfl" path="res://scenes/props/prop.tscn" id="1_lg6e6"]
+
+[node name="MenuDressing" type="Node3D" unique_id=831388226]
+
+[node name="Prop_Table" parent="." unique_id=456231023 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(0.9689124, 0, 0.24740396, 0, 1, 0, -0.24740396, 0, 0.9689124, -0.9, 0, -1.7)
+prop_id = "table"
+
+[node name="Prop_Chair1" parent="." unique_id=1137838888 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(-0.9667982, 0, -0.2555412, 0, 1, 0, 0.2555412, 0, -0.9667982, -0.85, 0, -0.65)
+prop_id = "chair"
+
+[node name="Prop_Chair2" parent="." unique_id=509055948 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(0.5403023, 0, -0.84147096, 0, 1, 0, 0.84147096, 0, 0.5403023, -1.9, 0, -1.5)
+prop_id = "chair"
+
+[node name="Prop_Bread" parent="." unique_id=1029258526 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(0.921061, 0, 0.38941833, 0, 1, 0, -0.38941833, 0, 0.921061, -0.75, 0.85, -1.6)
+prop_id = "bread"
+
+[node name="Prop_StewBowl" parent="." unique_id=488969697 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, 0.85, -1.75)
+prop_id = "stew_bowl"
+
+[node name="Prop_Cheese" parent="." unique_id=568839187 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.85, -1.85)
+prop_id = "cheese"
+
+[node name="Prop_Bed" parent="." unique_id=1714768971 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(0.9887711, 0, 0.14943814, 0, 1, 0, -0.14943814, 0, 0.9887711, 1.2, 0, -3.7)
+prop_id = "bed"
+
+[node name="Prop_Chest" parent="." unique_id=686370161 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(0.4605305, 0, -0.19470917, 0, 0.5, 0, 0.19470917, 0, 0.4605305, 2, 0, -1)
+prop_id = "chest"
+
+[node name="Prop_Crate" parent="." unique_id=1548075902 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(0.4900333, 0, 0.09933466, 0, 0.5, 0, -0.09933466, 0, 0.4900333, 2.4, 0, -2)
+prop_id = "crate"
+
+[node name="Prop_Barrel" parent="." unique_id=355446960 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0, -2.5)
+prop_id = "barrel"
+
+[node name="Prop_Bookshelf" parent="." unique_id=919120193 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(0.87758255, 0, 0.47942555, 0, 1, 0, -0.47942555, 0, 0.87758255, -2.7, 0, -2.7)
+prop_id = "bookshelf"
+
+[node name="Prop_Sack" parent="." unique_id=320221234 instance=ExtResource("1_lg6e6")]
+transform = Transform3D(0.7648422, 0, 0.64421767, 0, 1, 0, -0.64421767, 0, 0.7648422, -2.3, 0, -0.3)
+prop_id = "sack"
+
+[node name="TableCandleLight" type="OmniLight3D" parent="." unique_id=1780054695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 1.15, -1.7)
+light_color = Color(1, 0.72, 0.4, 1)
+light_energy = 1.4
+omni_range = 2.5

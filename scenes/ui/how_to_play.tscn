@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://w5x3ipiblbo3"]
+
+[ext_resource type="Script" uid="uid://ul7thp4h6h2v" path="res://scripts/ui/how_to_play.gd" id="1_rx6sf"]
+[ext_resource type="Script" uid="uid://cgalk0ro8gx61" path="res://scripts/ui/content_root.gd" id="2_mfe6v"]
+[ext_resource type="Script" uid="uid://bsgelr4ksddyw" path="res://scripts/ui/button_juice.gd" id="2_svix1"]
+
+[node name="HowToPlay" type="Control" unique_id=1578902783]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_rx6sf")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=417289179]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.098, 0.086, 0.094, 0.85)
+
+[node name="CenterArea" type="CenterContainer" parent="." unique_id=1283707570]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="CenterArea" unique_id=1276864785]
+layout_mode = 2
+theme_type_variation = &"CardPanel"
+
+[node name="ContentRoot" type="Control" parent="CenterArea/Card" unique_id=611504603]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_mfe6v")
+
+[node name="Box" type="VBoxContainer" parent="CenterArea/Card/ContentRoot" unique_id=1634840005]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="CenterArea/Card/ContentRoot/Box" unique_id=613491637]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "HOW TO RENT A ROOM"
+horizontal_alignment = 1
+
+[node name="Steps" type="VBoxContainer" parent="CenterArea/Card/ContentRoot/Box" unique_id=1062390933]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Step1" type="HBoxContainer" parent="CenterArea/Card/ContentRoot/Box/Steps" unique_id=1210676395]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Badge" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step1" unique_id=1977744481]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "1"
+
+[node name="Text" type="VBoxContainer" parent="CenterArea/Card/ContentRoot/Box/Steps/Step1" unique_id=500729556]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepTitle" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step1/Text" unique_id=2104740522]
+layout_mode = 2
+theme_type_variation = &"BodyBoldLabel"
+text = "READ THE TENANT"
+
+[node name="StepDesc" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step1/Text" unique_id=2100329925]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "Every monster has needs, likes and dislikes."
+autowrap_mode = 3
+
+[node name="Step2" type="HBoxContainer" parent="CenterArea/Card/ContentRoot/Box/Steps" unique_id=1104492276]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Badge" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step2" unique_id=1595161161]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "2"
+
+[node name="Text" type="VBoxContainer" parent="CenterArea/Card/ContentRoot/Box/Steps/Step2" unique_id=646576970]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepTitle" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step2/Text" unique_id=2012670803]
+layout_mode = 2
+theme_type_variation = &"BodyBoldLabel"
+text = "BUILD THE ROOM"
+
+[node name="StepDesc" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step2/Text" unique_id=1122169053]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "Place furniture and questionable objects."
+autowrap_mode = 3
+
+[node name="Step3" type="HBoxContainer" parent="CenterArea/Card/ContentRoot/Box/Steps" unique_id=1563952123]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Badge" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step3" unique_id=342766800]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "3"
+
+[node name="Text" type="VBoxContainer" parent="CenterArea/Card/ContentRoot/Box/Steps/Step3" unique_id=120514406]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepTitle" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step3/Text" unique_id=1694449086]
+layout_mode = 2
+theme_type_variation = &"BodyBoldLabel"
+text = "TEST THE ROOM"
+
+[node name="StepDesc" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step3/Text" unique_id=964478346]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "Let the monster move in."
+autowrap_mode = 3
+
+[node name="Step4" type="HBoxContainer" parent="CenterArea/Card/ContentRoot/Box/Steps" unique_id=1526661476]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Badge" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step4" unique_id=87436043]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "4"
+
+[node name="Text" type="VBoxContainer" parent="CenterArea/Card/ContentRoot/Box/Steps/Step4" unique_id=1892263679]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepTitle" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step4/Text" unique_id=276840048]
+layout_mode = 2
+theme_type_variation = &"BodyBoldLabel"
+text = "COLLECT RENT"
+
+[node name="StepDesc" type="Label" parent="CenterArea/Card/ContentRoot/Box/Steps/Step4/Text" unique_id=950384153]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "If they survive."
+autowrap_mode = 3
+
+[node name="ControlsSep" type="Control" parent="CenterArea/Card/ContentRoot/Box" unique_id=254372605]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="ControlsHeader" type="Label" parent="CenterArea/Card/ContentRoot/Box" unique_id=555966222]
+layout_mode = 2
+theme_type_variation = &"BodyBoldLabel"
+text = "CONTROLS"
+
+[node name="ControlsGrid" type="GridContainer" parent="CenterArea/Card/ContentRoot/Box" unique_id=1125262937]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="K1" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=674643987]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "LEFT CLICK"
+
+[node name="V1" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=986014382]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "Place / select"
+
+[node name="K2" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=958402942]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "RIGHT CLICK"
+
+[node name="V2" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=931547115]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "Cancel / delete"
+
+[node name="K3" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=604327170]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "Q / E"
+
+[node name="V3" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=466774611]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "Rotate"
+
+[node name="K4" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=1709637980]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "MIDDLE MOUSE"
+
+[node name="V4" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=987017238]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "Orbit / pan camera"
+
+[node name="K5" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=1851880407]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "MOUSE WHEEL"
+
+[node name="V5" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=441720647]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "Zoom"
+
+[node name="K6" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=748117168]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "F"
+
+[node name="V6" type="Label" parent="CenterArea/Card/ContentRoot/Box/ControlsGrid" unique_id=65166230]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "Reset camera"
+
+[node name="GotItButton" type="Button" parent="CenterArea/Card/ContentRoot/Box" unique_id=498037916]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"PrimaryButton"
+text = "GOT IT"
+script = ExtResource("2_svix1")
+
+[node name="CloseButton" type="Button" parent="CenterArea/Card/ContentRoot" unique_id=122155005]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 44.0
+grow_horizontal = 0
+text = "×"
+script = ExtResource("2_svix1")

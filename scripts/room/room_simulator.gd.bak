@@ -1,0 +1,133 @@
+extends Node3D
+## Drives the scripted goblin test sequence once TEST ROOM is pressed.
+## Deliberately dumb and deterministic (LAW: no pathfinding, no AI, no
+## behavior trees) -- just a fixed list of beats driven by whichever props
+## the player placed via RoomEditor (sibling script on the Room root).
+
+const GOBLIN_SCENE := preload("res://scenes/monsters/goblin.tscn")
+
+var _goblin: Node3D = null
+
+
+func _ready() -> void:
+	GameManager.state_changed.connect(_on_state_changed)
+
+
+func _on_state_changed(new_state) -> void:
+	if new_state == GameManager.State.SIMULATING:
+		_run_simulation()
+	elif new_state == GameManager.State.BUILD:
+		_cleanup_goblin()
+
+
+func _cleanup_goblin() -> void:
+	if is_instance_valid(_goblin):
+		_goblin.queue_free()
+	_goblin = null
+
+
+func _run_simulation() -> void:
+	_cleanup_goblin()
+
+	var room := get_parent()
+	var entrance: Marker3D = room.get_node("Entrance")
+	var placed: Array = room.get_placed_props()
+
+	_goblin = GOBLIN_SCENE.instantiate()
+	room.add_child(_goblin)
+	_goblin.global_position = entrance.global_position
+
+	var food_props: Array = []
+	var bed_props: Array = []
+	var storage_count: int = 0
+	var other_props: Array = []
+
+	for p in placed:
+		if p.has_tag("storage"):
+			storage_count += 1
+		if p.has_tag("food"):
+			food_props.append(p)
+		elif p.has_tag("bed"):
+			bed_props.append(p)
+		else:
+			other_props.append(p)
+
+	var happiness := 50
+	var ate := false
+	var slept := false
+	var died := false
+	var cause := ""
+
+	await get_tree().create_timer(0.3).timeout
+	await _goblin.say("?", 0.6)
+
+	# --- FOOD ---
+	if food_props.size() > 0:
+		var target = food_props[0]
+		await _goblin.say("HUNGRY!", 0.7)
+		await _goblin.move_to(target.global_position)
+		await _goblin.play_eat()
+		await _goblin.say("YUM.", 0.6)
+		ate = true
+		happiness += 15
+
+	# --- BED ---
+	if bed_props.size() > 0:
+		var target = bed_props[0]
+		await _goblin.move_to(target.global_position)
+		await _goblin.play_sleep()
+		slept = true
+		happiness += 15
+
+	# --- WANDER / HAZARDS ---
+	for p in other_props:
+		if died or not is_instance_valid(p):
+			continue
+		await _goblin.move_to(p.global_position)
+		if p.has_tag("trap"):
+			await _goblin.say("\U0001F60D", 0.5)  # goblins LIKE traps -- that's the joke
+			await _goblin.say("CLANK!", 0.6)
+			var dir := Vector3(randf_range(-1.0, 1.0), 0.0, randf_range(-1.0, 1.0))
+			p.play_destroyed()
+			await _goblin.play_death(dir)
+			died = true
+			cause = "Stepped right into the %s he liked so much." % p.get_display_name()
+			happiness = 0
+		elif p.has_tag("bright_light"):
+			await _goblin.play_squint_and_declare_sun()
+			happiness -= 10
+		elif p.has_tag("expensive"):
+			await _goblin.play_angry()
+			happiness -= 10
+		elif p.has_tag("junk"):
+			await _goblin.play_happy_dance()
+			happiness += 5
+
+	if not died:
+		if storage_count > 0:
+			happiness += 10
+		if not ate:
+			happiness -= 15
+			await _goblin.say("...", 0.6)
+		if not slept:
+			happiness -= 10
+		happiness = clampi(happiness, 0, 100)
+		if happiness >= 50:
+			await _goblin.play_happy_dance()
+		else:
+			await _goblin.play_angry()
+
+	happiness = clampi(happiness, 0, 100)
+
+	var result := {
+		"success": not died,
+		"rent": GoblinData.DATA.get("rent", 0),
+		"ate": ate,
+		"slept": slept,
+		"has_storage": storage_count > 0,
+		"safe": not died,
+		"happiness": happiness,
+		"room_quality": clampi(int(placed.size() / 2) + 1, 1, 5),
+		"cause": cause,
+	}
+	GameManager.report_result(result)

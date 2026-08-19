@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dc04cj8ttvlub"]
+
+[ext_resource type="Script" uid="uid://dtfkubpe6vgdx" path="res://scripts/room/asset_wrapper.gd" id="1_fgnaf"]
+[ext_resource type="PackedScene" uid="uid://cxxa4niifs1q" path="res://assets/props/Assets 2.glb" id="2_uwjww"]
+
+[node name="StoolVisual" type="Node3D" unique_id=94069640]
+script = ExtResource("1_fgnaf")
+keep_node_name = "Stool_001"
+
+[node name="Assets" parent="." unique_id=1784936773 instance=ExtResource("2_uwjww")]

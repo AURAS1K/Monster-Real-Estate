@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://dsyntlm06wcm6"]
+
+[ext_resource type="Script" uid="uid://bvwn32mgvbp5m" path="res://scripts/ui/credits.gd" id="1_jkvjv"]
+[ext_resource type="Script" uid="uid://bsgelr4ksddyw" path="res://scripts/ui/button_juice.gd" id="1_oap8i"]
+[ext_resource type="Script" uid="uid://cgalk0ro8gx61" path="res://scripts/ui/content_root.gd" id="2_pqmjv"]
+
+[node name="Credits" type="Control" unique_id=186170069]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_jkvjv")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1283974113]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.098, 0.086, 0.094, 0.85)
+
+[node name="CenterArea" type="CenterContainer" parent="." unique_id=843043788]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Card" type="PanelContainer" parent="CenterArea" unique_id=293197789]
+layout_mode = 2
+theme_type_variation = &"CardPanel"
+
+[node name="ContentRoot" type="Control" parent="CenterArea/Card" unique_id=1937950029]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_pqmjv")
+
+[node name="Box" type="VBoxContainer" parent="CenterArea/Card/ContentRoot" unique_id=1543235857]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CenterArea/Card/ContentRoot/Box" unique_id=2121506267]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "TERMS & CREDITS"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="CenterArea/Card/ContentRoot/Box" unique_id=2017161502]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ScrollArea" type="ScrollContainer" parent="CenterArea/Card/ContentRoot/Box" unique_id=1919967930]
+custom_minimum_size = Vector2(0, 440)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ScrollBox" type="VBoxContainer" parent="CenterArea/Card/ContentRoot/Box/ScrollArea" unique_id=865082431]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="TermsHeader" type="Label" parent="CenterArea/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1027860292]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "TERMS & CONDITIONS"
+
+[node name="TermsSpacer1" type="Control" parent="CenterArea/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=242014181]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="TermsBody" type="Label" parent="CenterArea/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1785101175]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "Monster Real Estate is provided as-is, for personal entertainment use. Copying, redistributing, reselling, or repackaging this game or its assets without permission is not allowed -- piracy hurts small/solo development directly and is the fastest way for projects like this to stop getting made.
+
+All original art, code, and design are the property of their creators. Third-party assets (fonts, imported models, engine components) remain the property of their respective owners and are used under their applicable licenses.
+
+This game is provided without warranty of any kind. Play at your own enjoyment."
+autowrap_mode = 3
+
+[node name="TermsSpacer2" type="Control" parent="CenterArea/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=583250991]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CreditsHeader" type="Label" parent="CenterArea/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1389781575]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "CREDITS"
+
+[node name="CreditsSpacer1" type="Control" parent="CenterArea/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=722715219]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="CreditsBody" type="Label" parent="CenterArea/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=847698540]
+layout_mode = 2
+text = "Monster Real Estate
+
+Design & Development: AURAS1K
+Goblin Room Art: Blender import pipeline
+Built with Godot 4"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer2" type="Control" parent="CenterArea/Card/ContentRoot/Box" unique_id=739157479]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterArea/Card/ContentRoot/Box" unique_id=1342980353]
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+text = "BACK"
+script = ExtResource("1_oap8i")
+
+[node name="CloseButton" type="Button" parent="CenterArea/Card/ContentRoot" unique_id=496775794]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 44.0
+grow_horizontal = 0
+text = "×"
+script = ExtResource("1_oap8i")

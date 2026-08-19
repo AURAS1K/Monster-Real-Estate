@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dm0ew41xp16xy"]
+
+[ext_resource type="Script" uid="uid://dtfkubpe6vgdx" path="res://scripts/room/asset_wrapper.gd" id="1_73mbn"]
+[ext_resource type="PackedScene" uid="uid://cperk7rn7og1x" path="res://assets/props/Assets.glb" id="1_ix5sx"]
+
+[node name="TorchVisual" type="Node3D" unique_id=876481560]
+script = ExtResource("1_73mbn")
+keep_node_name = "WallTorch"
+
+[node name="Assets" parent="." unique_id=56868293 instance=ExtResource("1_ix5sx")]

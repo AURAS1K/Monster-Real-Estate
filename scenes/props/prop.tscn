@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cpaue3amuvkfl"]
+
+[ext_resource type="Script" uid="uid://io715v35ocmm" path="res://scripts/room/prop.gd" id="1_rqolk"]
+
+[node name="Prop" type="Node3D" unique_id=456231023]
+script = ExtResource("1_rqolk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=231809116]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1635664865]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=545971162]
+
+[node name="Visual" type="Node3D" parent="." unique_id=1107688443]

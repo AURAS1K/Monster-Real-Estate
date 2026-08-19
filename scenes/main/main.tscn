@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://pepcad6ui4om"]
+
+[ext_resource type="PackedScene" uid="uid://d2tjvb30xpu0l" path="res://scenes/room/room.tscn" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://dpf75qr1nhbo4" path="res://scripts/core/main.gd" id="1_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://bh7fb1du58d47" path="res://scenes/ui/hud.tscn" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://cc6x8gmkp1poh" path="res://scenes/monsters/goblin.tscn" id="3_yyfjg"]
+[ext_resource type="Script" uid="uid://cok85vmhbmh1f" path="res://scripts/room/menu_goblin_idle.gd" id="4_b1x3f"]
+[ext_resource type="PackedScene" uid="uid://xwpmy32qiys5" path="res://scenes/ui/title_screen.tscn" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://w5x3ipiblbo3" path="res://scenes/ui/how_to_play.tscn" id="5_6q06x"]
+[ext_resource type="Script" uid="uid://betwvot02w28y" path="res://scripts/room/menu_dust_motes.gd" id="5_a8run"]
+[ext_resource type="Script" uid="uid://ckclo01uiql35" path="res://scripts/room/room_ambience.gd" id="6_ouso4"]
+[ext_resource type="PackedScene" uid="uid://bc0bot10yif8r" path="res://scenes/ui/tenant_application.tscn" id="6_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://dca72v0g7howy" path="res://scenes/ui/menu_dressing.tscn" id="7_blune"]
+[ext_resource type="PackedScene" uid="uid://dsyntlm06wcm6" path="res://scenes/ui/credits.tscn" id="7_hujxm"]
+[ext_resource type="PackedScene" uid="uid://fjwi2m8jmkf3" path="res://scenes/ui/job_board.tscn" id="13_th5th"]
+
+[node name="Main" type="Node" unique_id=1467336811]
+script = ExtResource("1_k2fmo")
+
+[node name="Room" parent="." unique_id=2132890583 instance=ExtResource("1_hyk8p")]
+
+[node name="MenuGoblin" parent="Room" unique_id=1019297169 instance=ExtResource("3_yyfjg")]
+transform = Transform3D(-0.531271, 0, 0.3196109, 0, 0.62, 0, -0.3196109, 0, -0.531271, 2, 0, -3)
+
+[node name="IdleAnim" type="Node" parent="Room/MenuGoblin" unique_id=1768712452]
+script = ExtResource("4_b1x3f")
+
+[node name="DustMotesSpawner" type="Node3D" parent="Room" unique_id=466338984]
+script = ExtResource("5_a8run")
+
+[node name="RoomAmbience" type="Node" parent="Room" unique_id=1192794332]
+script = ExtResource("6_ouso4")
+
+[node name="MenuDressing" parent="Room" unique_id=831388226 instance=ExtResource("7_blune")]
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=137824196]
+
+[node name="HUD" parent="UILayer" unique_id=1089939389 instance=ExtResource("2_iuonh")]
+visible = false
+
+[node name="TitleScreen" parent="UILayer" unique_id=561822473 instance=ExtResource("4_l3cfh")]
+
+[node name="HowToPlay" parent="UILayer" unique_id=1578902783 instance=ExtResource("5_6q06x")]
+
+[node name="TenantApplication" parent="UILayer" unique_id=786791127 instance=ExtResource("6_ow5a4")]
+
+[node name="Credits" parent="UILayer" unique_id=186170069 instance=ExtResource("7_hujxm")]
+
+[node name="JobBoard" parent="UILayer" unique_id=505554380 instance=ExtResource("13_th5th")]

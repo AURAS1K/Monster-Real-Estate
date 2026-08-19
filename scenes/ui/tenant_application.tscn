@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://bc0bot10yif8r"]
+
+[ext_resource type="Script" uid="uid://c7wg5d5ujxg7d" path="res://scripts/ui/tenant_application.gd" id="1_wkxi7"]
+[ext_resource type="Script" uid="uid://bsgelr4ksddyw" path="res://scripts/ui/button_juice.gd" id="2_x214v"]
+
+[node name="TenantApplication" type="Control" unique_id=786791127]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_wkxi7")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1305953659]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.098, 0.086, 0.094, 0.85)
+
+[node name="CenterArea" type="CenterContainer" parent="." unique_id=721127247]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="CenterArea" unique_id=1347751889]
+layout_mode = 2
+theme_type_variation = &"CardPanel"
+
+[node name="Box" type="VBoxContainer" parent="CenterArea/Card" unique_id=1378305105]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="CenterArea/Card/Box" unique_id=323974541]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "TENANT APPLICATION"
+horizontal_alignment = 1
+
+[node name="TenantName" type="Label" parent="CenterArea/Card/Box" unique_id=1793827808]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "GOBLIN"
+horizontal_alignment = 1
+
+[node name="Quote" type="Label" parent="CenterArea/Card/Box" unique_id=1913649643]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "“I need a place.”"
+horizontal_alignment = 1
+
+[node name="Sep1" type="Control" parent="CenterArea/Card/Box" unique_id=1042090529]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="RequirementsHeader" type="Label" parent="CenterArea/Card/Box" unique_id=1728522325]
+layout_mode = 2
+theme_type_variation = &"BodyBoldLabel"
+text = "REQUIREMENTS"
+
+[node name="RequirementsBox" type="VBoxContainer" parent="CenterArea/Card/Box" unique_id=2143056011]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Sep2" type="Control" parent="CenterArea/Card/Box" unique_id=945651421]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="LikesRow" type="HBoxContainer" parent="CenterArea/Card/Box" unique_id=1012209976]
+layout_mode = 2
+
+[node name="LikesKey" type="Label" parent="CenterArea/Card/Box/LikesRow" unique_id=211844035]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BodyBoldLabel"
+text = "LIKES"
+
+[node name="LikesValue" type="Label" parent="CenterArea/Card/Box/LikesRow" unique_id=272273469]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "..."
+horizontal_alignment = 2
+
+[node name="HatesRow" type="HBoxContainer" parent="CenterArea/Card/Box" unique_id=841717814]
+layout_mode = 2
+
+[node name="HatesKey" type="Label" parent="CenterArea/Card/Box/HatesRow" unique_id=113322155]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BodyBoldLabel"
+text = "HATES"
+
+[node name="HatesValue" type="Label" parent="CenterArea/Card/Box/HatesRow" unique_id=924874393]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "..."
+horizontal_alignment = 2
+
+[node name="Sep2b" type="Control" parent="CenterArea/Card/Box" unique_id=751312499]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="PersonalityLabel" type="Label" parent="CenterArea/Card/Box" unique_id=935673180]
+layout_mode = 2
+theme_type_variation = &"DangerLabel"
+theme_override_font_sizes/font_size = 13
+text = "..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Sep3" type="Control" parent="CenterArea/Card/Box" unique_id=2088933674]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="RentRow" type="HBoxContainer" parent="CenterArea/Card/Box" unique_id=69445653]
+layout_mode = 2
+
+[node name="RentKey" type="Label" parent="CenterArea/Card/Box/RentRow" unique_id=1965842582]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BodyBoldLabel"
+text = "RENT"
+
+[node name="RentValue" type="Label" parent="CenterArea/Card/Box/RentRow" unique_id=1297298416]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "..."
+horizontal_alignment = 2
+
+[node name="Sep4" type="Control" parent="CenterArea/Card/Box" unique_id=2091262242]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="AcceptButton" type="Button" parent="CenterArea/Card/Box" unique_id=589104985]
+custom_minimum_size = Vector2(260, 54)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"PrimaryButton"
+text = "ACCEPT TENANT"
+script = ExtResource("2_x214v")

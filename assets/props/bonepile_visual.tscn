@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c4gvnk5wp5yd0"]
+
+[ext_resource type="Script" uid="uid://dtfkubpe6vgdx" path="res://scripts/room/asset_wrapper.gd" id="1_bnkb7"]
+[ext_resource type="PackedScene" uid="uid://cxxa4niifs1q" path="res://assets/props/Assets 2.glb" id="2_63cvd"]
+
+[node name="BonePileVisual" type="Node3D" unique_id=725725090]
+script = ExtResource("1_bnkb7")
+keep_node_name = "BonePile_001"
+
+[node name="Assets" parent="." unique_id=1784936773 instance=ExtResource("2_63cvd")]

@@ -1,0 +1,462 @@
+[gd_scene format=3 uid="uid://xwpmy32qiys5"]
+
+[ext_resource type="Script" uid="uid://pki80odd1es" path="res://scripts/ui/title_screen.gd" id="1_aqpy5"]
+[ext_resource type="Script" uid="uid://bsgelr4ksddyw" path="res://scripts/ui/button_juice.gd" id="1_eb34j"]
+[ext_resource type="Script" uid="uid://cgalk0ro8gx61" path="res://scripts/ui/content_root.gd" id="2_w8uqo"]
+[ext_resource type="Script" uid="uid://d18awmvxjqto5" path="res://scripts/ui/keybind_button.gd" id="3_a4ium"]
+
+[node name="TitleScreen" type="Control" unique_id=561822473]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_aqpy5")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1485837656]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.11, 0.075, 0.06, 0.16)
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=2017317204]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.1)
+
+[node name="Footer" type="Label" parent="." unique_id=1568842164]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"SecondaryLabel"
+theme_override_colors/font_color = Color(0.933, 0.886, 0.792, 0.85)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
+text = "Where monsters live comfortably. Usually."
+horizontal_alignment = 1
+
+[node name="TitleArea" type="CenterContainer" parent="." unique_id=251839118]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.03
+anchor_right = 1.0
+anchor_bottom = 0.37
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitlePlaque" type="PanelContainer" parent="TitleArea" unique_id=1692299496]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"TitlePlaque"
+
+[node name="TitleContent" type="VBoxContainer" parent="TitleArea/TitlePlaque" unique_id=1817012103]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="TitleLine1" type="Label" parent="TitleArea/TitlePlaque/TitleContent" unique_id=1221412277]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.55)
+theme_override_colors/font_outline_color = Color(0.098, 0.086, 0.078, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 82
+text = "MONSTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleLine2" type="Label" parent="TitleArea/TitlePlaque/TitleContent" unique_id=113148511]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_color = Color(0.851, 0.651, 0.161, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
+theme_override_colors/font_outline_color = Color(0.098, 0.086, 0.078, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 38
+text = "REAL ESTATE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleSpacer" type="Control" parent="TitleArea/TitlePlaque/TitleContent" unique_id=321331978]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Subtitle" type="Label" parent="TitleArea/TitlePlaque/TitleContent" unique_id=997566359]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
+theme_override_constants/shadow_offset_y = 2
+text = "Professional Dungeon Housing.
+Questionable Tenant Safety."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ButtonArea" type="CenterContainer" parent="." unique_id=1143048137]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.457
+anchor_right = 1.0
+anchor_bottom = 0.901
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ButtonContent" type="VBoxContainer" parent="ButtonArea" unique_id=787893821]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="StartButton" type="Button" parent="ButtonArea/ButtonContent" unique_id=85757032]
+custom_minimum_size = Vector2(440, 82)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"PrimaryButton"
+text = "START RENTING"
+script = ExtResource("1_eb34j")
+
+[node name="MiniSpacer" type="Control" parent="ButtonArea/ButtonContent" unique_id=1749849935]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HowToButton" type="Button" parent="ButtonArea/ButtonContent" unique_id=553724585]
+custom_minimum_size = Vector2(300, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"SecondaryButton"
+text = "HOW TO PLAY"
+script = ExtResource("1_eb34j")
+
+[node name="SettingsButton" type="Button" parent="ButtonArea/ButtonContent" unique_id=1982638718]
+custom_minimum_size = Vector2(300, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"SecondaryButton"
+text = "SETTINGS"
+script = ExtResource("1_eb34j")
+
+[node name="CreditsButton" type="Button" parent="ButtonArea/ButtonContent" unique_id=1745463972]
+custom_minimum_size = Vector2(300, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"SecondaryButton"
+text = "CREDITS"
+script = ExtResource("1_eb34j")
+
+[node name="SettingsBackdrop" type="ColorRect" parent="." unique_id=1226150303]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.098, 0.086, 0.094, 0.85)
+
+[node name="MenuBackground" type="VideoStreamPlayer" parent="." unique_id=2056155222]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+autoplay = true
+expand = true
+
+[node name="SettingsPanel" type="CenterContainer" parent="." unique_id=1124243274]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="SettingsPanel" unique_id=681779508]
+layout_mode = 2
+theme_type_variation = &"CardPanel"
+
+[node name="ContentRoot" type="Control" parent="SettingsPanel/Card" unique_id=690385010]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_w8uqo")
+
+[node name="Box" type="VBoxContainer" parent="SettingsPanel/Card/ContentRoot" unique_id=1683239967]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="SettingsPanel/Card/ContentRoot/Box" unique_id=150775013]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="SettingsPanel/Card/ContentRoot/Box" unique_id=352113537]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="ScrollArea" type="ScrollContainer" parent="SettingsPanel/Card/ContentRoot/Box" unique_id=1650491765]
+custom_minimum_size = Vector2(0, 440)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ScrollBox" type="VBoxContainer" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea" unique_id=2123365483]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="DisplayHeader" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=597339702]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "DISPLAY"
+
+[node name="FullscreenRow" type="HBoxContainer" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=825216646]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/FullscreenRow" unique_id=963045555]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="FullscreenToggle" type="CheckButton" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/FullscreenRow" unique_id=1418395307]
+layout_mode = 2
+
+[node name="Sep1" type="Control" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=179870860]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="AudioHeader" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=923152440]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "AUDIO"
+
+[node name="VolumeRow" type="HBoxContainer" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1408454585]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/VolumeRow" unique_id=1498700489]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/VolumeRow" unique_id=783429202]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="ValueLabel" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/VolumeRow" unique_id=1067524451]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "100%"
+horizontal_alignment = 2
+
+[node name="Sep2" type="Control" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=2104478159]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="CameraHeader" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=860804809]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "CAMERA"
+
+[node name="SensitivityRow" type="HBoxContainer" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1790808314]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/SensitivityRow" unique_id=492305288]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sensitivity"
+
+[node name="SensitivitySlider" type="HSlider" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/SensitivityRow" unique_id=739273169]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+min_value = 0.25
+max_value = 3.0
+step = 0.05
+value = 1.0
+
+[node name="ValueLabel" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/SensitivityRow" unique_id=1966252271]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "1.00x"
+horizontal_alignment = 2
+
+[node name="Sep3" type="Control" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=644485899]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="GraphicsHeader" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1252651815]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "GRAPHICS"
+
+[node name="BrightnessRow" type="HBoxContainer" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=2063625949]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/BrightnessRow" unique_id=365415047]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Brightness"
+
+[node name="BrightnessSlider" type="HSlider" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/BrightnessRow" unique_id=1892080637]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+min_value = 0.5
+max_value = 1.5
+step = 0.01
+value = 1.0
+
+[node name="ValueLabel" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/BrightnessRow" unique_id=860960498]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "1.00"
+horizontal_alignment = 2
+
+[node name="ContrastRow" type="HBoxContainer" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1918237779]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/ContrastRow" unique_id=1919758191]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Contrast"
+
+[node name="ContrastSlider" type="HSlider" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/ContrastRow" unique_id=873536797]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+min_value = 0.5
+max_value = 1.5
+step = 0.01
+value = 1.0
+
+[node name="ValueLabel" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/ContrastRow" unique_id=281240747]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "1.00"
+horizontal_alignment = 2
+
+[node name="Sep4" type="Control" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1378919880]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ControlsHeader" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1661822130]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "CONTROLS"
+
+[node name="ResetCameraRow" type="HBoxContainer" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=356053895]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/ResetCameraRow" unique_id=1240094007]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset Camera"
+
+[node name="KeybindButton" type="Button" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/ResetCameraRow" unique_id=13398364]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+script = ExtResource("3_a4ium")
+
+[node name="ToggleViewRow" type="HBoxContainer" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1990996303]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/ToggleViewRow" unique_id=1678882491]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Toggle Cinematic View"
+
+[node name="KeybindButton" type="Button" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/ToggleViewRow" unique_id=209084627]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+script = ExtResource("3_a4ium")
+
+[node name="ToggleTopRow" type="HBoxContainer" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox" unique_id=1086258334]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/ToggleTopRow" unique_id=802482873]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Toggle Top View"
+
+[node name="KeybindButton" type="Button" parent="SettingsPanel/Card/ContentRoot/Box/ScrollArea/ScrollBox/ToggleTopRow" unique_id=1893983579]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+script = ExtResource("3_a4ium")
+
+[node name="Spacer2" type="Control" parent="SettingsPanel/Card/ContentRoot/Box" unique_id=1371167432]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="ResetDefaultsButton" type="Button" parent="SettingsPanel/Card/ContentRoot/Box" unique_id=114973578]
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+text = "RESET TO DEFAULTS"
+script = ExtResource("1_eb34j")
+
+[node name="BackButton" type="Button" parent="SettingsPanel/Card/ContentRoot/Box" unique_id=697690760]
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+text = "BACK"
+script = ExtResource("1_eb34j")
+
+[node name="CloseButton" type="Button" parent="SettingsPanel/Card/ContentRoot" unique_id=437887484]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 44.0
+grow_horizontal = 0
+text = "×"
+script = ExtResource("1_eb34j")

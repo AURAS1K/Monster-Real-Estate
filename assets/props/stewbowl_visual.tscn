@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bd7u0aads1g1s"]
+
+[ext_resource type="Script" uid="uid://dtfkubpe6vgdx" path="res://scripts/room/asset_wrapper.gd" id="1_gq4cu"]
+[ext_resource type="PackedScene" uid="uid://cxxa4niifs1q" path="res://assets/props/Assets 2.glb" id="2_bpp5l"]
+
+[node name="StewBowlVisual" type="Node3D" unique_id=2133436180]
+script = ExtResource("1_gq4cu")
+keep_node_name = "StewBowl_001"
+
+[node name="Assets" parent="." unique_id=1784936773 instance=ExtResource("2_bpp5l")]

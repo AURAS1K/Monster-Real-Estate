@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://txw73vpnne6f"]
+
+[ext_resource type="PackedScene" uid="uid://cperk7rn7og1x" path="res://assets/props/Assets.glb" id="1_2vlf3"]
+[ext_resource type="Script" uid="uid://dtfkubpe6vgdx" path="res://scripts/room/asset_wrapper.gd" id="1_p50vj"]
+
+[node name="BearTrapVisual" type="Node3D" unique_id=661576388]
+script = ExtResource("1_p50vj")
+keep_node_name = "BearTrap"
+
+[node name="Assets" parent="." unique_id=56868293 instance=ExtResource("1_2vlf3")]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cc6x8gmkp1poh"]
+
+[ext_resource type="Script" uid="uid://couyrjnk4d1nc" path="res://scripts/monsters/goblin.gd" id="1_vpg4a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpg4a"]
+albedo_color = Color(0.35, 0.6, 0.25, 1)
+roughness = 0.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vpg4a"]
+radius = 0.35
+height = 1.1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vpg4a"]
+radius = 0.35
+height = 1.1
+
+[node name="Goblin" type="CharacterBody3D" unique_id=1019297169]
+script = ExtResource("1_vpg4a")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="." unique_id=643630673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+material_override = SubResource("StandardMaterial3D_vpg4a")
+mesh = SubResource("CapsuleMesh_vpg4a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=633177624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+shape = SubResource("CapsuleShape3D_vpg4a")
+
+[node name="ReactionLabel" type="Label3D" parent="." unique_id=909799302]
+billboard = 1
+font_size = 48

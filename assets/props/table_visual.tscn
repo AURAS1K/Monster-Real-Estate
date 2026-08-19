@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://chuv2w60rd25y"]
+
+[ext_resource type="Script" uid="uid://dtfkubpe6vgdx" path="res://scripts/room/asset_wrapper.gd" id="1_rtn0v"]
+[ext_resource type="PackedScene" uid="uid://cxxa4niifs1q" path="res://assets/props/Assets 2.glb" id="2_65eba"]
+
+[node name="TableVisual" type="Node3D" unique_id=279354909]
+script = ExtResource("1_rtn0v")
+keep_node_name = "Table_001"
+
+[node name="Assets" parent="." unique_id=1784936773 instance=ExtResource("2_65eba")]

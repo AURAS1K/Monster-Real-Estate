@@ -1,0 +1,261 @@
+[gd_scene format=3 uid="uid://bh7fb1du58d47"]
+
+[ext_resource type="Script" uid="uid://b7r66kr2xql76" path="res://scripts/ui/hud.gd" id="1_0mwgc"]
+[ext_resource type="Script" uid="uid://bsgelr4ksddyw" path="res://scripts/ui/button_juice.gd" id="2_hqnrr"]
+
+[node name="HUD" type="Control" unique_id=1089939389]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_0mwgc")
+
+[node name="PropPanel" type="PanelContainer" parent="." unique_id=98211478]
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -84.0
+offset_right = 16.0
+offset_bottom = -16.0
+theme_type_variation = &"FlatPanel"
+
+[node name="PropScroll" type="ScrollContainer" parent="PropPanel" unique_id=1374009114]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="PropButtons" type="HBoxContainer" parent="PropPanel/PropScroll" unique_id=686210676]
+layout_mode = 2
+alignment = 1
+
+[node name="ControlsHint" type="PanelContainer" parent="." unique_id=1020100020]
+modulate = Color(1, 1, 1, 0.75)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 74.0
+offset_right = 181.0
+offset_bottom = 136.0
+theme_type_variation = &"HintPanel"
+
+[node name="ControlsLabel" type="Label" parent="ControlsHint" unique_id=868116943]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+theme_override_font_sizes/font_size = 11
+text = "CAMERA
+MMB: Orbit  Shift+MMB: Pan
+Wheel: Zoom  F: Reset
+
+BUILD
+Q/E: Rotate  LMB: Place/Select
+RMB: Delete/Cancel"
+
+[node name="TopBar" type="PanelContainer" parent="." unique_id=1094571823]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_type_variation = &"FlatPanel"
+
+[node name="Margin" type="MarginContainer" parent="TopBar" unique_id=1509589308]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 10
+
+[node name="Row" type="HBoxContainer" parent="TopBar/Margin" unique_id=1207664216]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="TenantInfo" type="VBoxContainer" parent="TopBar/Margin/Row" unique_id=572970101]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TenantNameLabel" type="Label" parent="TopBar/Margin/Row/TenantInfo" unique_id=1055079794]
+layout_mode = 2
+theme_type_variation = &"BodyBoldLabel"
+text = "GOBLIN"
+
+[node name="ChecklistRow" type="HBoxContainer" parent="TopBar/Margin/Row/TenantInfo" unique_id=1331716914]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TaskList" type="VBoxContainer" parent="TopBar/Margin/Row/TenantInfo/ChecklistRow" unique_id=943693408]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RequiredTasks" type="VBoxContainer" parent="TopBar/Margin/Row/TenantInfo/ChecklistRow/TaskList" unique_id=1023845139]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="OptionalTasks" type="VBoxContainer" parent="TopBar/Margin/Row/TenantInfo/ChecklistRow/TaskList" unique_id=507097]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="StateLabel" type="Label" parent="TopBar/Margin/Row" unique_id=190336117]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"GoldLabel"
+text = "BUILD MODE"
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="TopBar/Margin/Row" unique_id=322805663]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "300 GOLD"
+horizontal_alignment = 2
+
+[node name="SimStatusLabel" type="Label" parent="." unique_id=1895224084]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 78.0
+offset_right = 160.0
+grow_horizontal = 2
+theme_type_variation = &"SectionLabel"
+text = "TESTING ROOM..."
+horizontal_alignment = 1
+
+[node name="TestButton" type="Button" parent="." unique_id=1507744650]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -236.0
+offset_top = -158.0
+offset_right = -66.0
+offset_bottom = -116.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_type_variation = &"PrimaryButton"
+text = "TEST ROOM"
+script = ExtResource("2_hqnrr")
+
+[node name="ResultsPanel" type="CenterContainer" parent="." unique_id=1438991348]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Backdrop" type="ColorRect" parent="ResultsPanel" unique_id=1739827322]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Card" type="PanelContainer" parent="ResultsPanel" unique_id=866598196]
+layout_mode = 2
+theme_type_variation = &"CardPanel"
+
+[node name="ResultsBox" type="VBoxContainer" parent="ResultsPanel/Card" unique_id=1541637005]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ResultTitle" type="Label" parent="ResultsPanel/Card/ResultsBox" unique_id=462156009]
+layout_mode = 2
+theme_type_variation = &"SuccessLabel"
+text = "RESULT"
+horizontal_alignment = 1
+
+[node name="ResultSubtitle" type="Label" parent="ResultsPanel/Card/ResultsBox" unique_id=986770245]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="RentRow" type="HBoxContainer" parent="ResultsPanel/Card/ResultsBox" unique_id=1668829471]
+layout_mode = 2
+
+[node name="RentKey" type="Label" parent="ResultsPanel/Card/ResultsBox/RentRow" unique_id=1978394467]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BodyBoldLabel"
+text = "RENT"
+
+[node name="RentValue" type="Label" parent="ResultsPanel/Card/ResultsBox/RentRow" unique_id=760959253]
+layout_mode = 2
+theme_type_variation = &"GoldLabel"
+text = "+0 GOLD"
+horizontal_alignment = 2
+
+[node name="ScrollArea" type="ScrollContainer" parent="ResultsPanel/Card/ResultsBox" unique_id=588577441]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+vertical_scroll_mode = 3
+
+[node name="ScrollBox" type="VBoxContainer" parent="ResultsPanel/Card/ResultsBox/ScrollArea" unique_id=732685489]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="StatsBox" type="VBoxContainer" parent="ResultsPanel/Card/ResultsBox/ScrollArea/ScrollBox" unique_id=155633271]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="CauseBox" type="VBoxContainer" parent="ResultsPanel/Card/ResultsBox/ScrollArea/ScrollBox" unique_id=1616085890]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="CauseHeader" type="Label" parent="ResultsPanel/Card/ResultsBox/ScrollArea/ScrollBox/CauseBox" unique_id=1528231231]
+layout_mode = 2
+theme_type_variation = &"BodyBoldLabel"
+text = "CAUSE OF DEATH"
+
+[node name="CauseText" type="Label" parent="ResultsPanel/Card/ResultsBox/ScrollArea/ScrollBox/CauseBox" unique_id=180890900]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "..."
+autowrap_mode = 3
+
+[node name="WhyHeader" type="Label" parent="ResultsPanel/Card/ResultsBox/ScrollArea/ScrollBox/CauseBox" unique_id=1972030583]
+layout_mode = 2
+theme_type_variation = &"BodyBoldLabel"
+text = "WHY"
+
+[node name="WhyText" type="Label" parent="ResultsPanel/Card/ResultsBox/ScrollArea/ScrollBox/CauseBox" unique_id=21288314]
+layout_mode = 2
+theme_type_variation = &"SecondaryLabel"
+text = "..."
+autowrap_mode = 3
+
+[node name="EventsHeader" type="Label" parent="ResultsPanel/Card/ResultsBox/ScrollArea/ScrollBox" unique_id=369726002]
+layout_mode = 2
+theme_type_variation = &"BodyBoldLabel"
+text = "EVENT LOG"
+
+[node name="EventsBox" type="VBoxContainer" parent="ResultsPanel/Card/ResultsBox/ScrollArea/ScrollBox" unique_id=929606943]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TryAgainButton" type="Button" parent="ResultsPanel/Card/ResultsBox" unique_id=1984002915]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+text = "FURNISH AGAIN"
+script = ExtResource("2_hqnrr")
+
+[node name="TestSubtitle" type="Label" parent="." unique_id=1776654376]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -236.0
+offset_top = -184.0
+offset_right = -16.0
+offset_bottom = -161.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_type_variation = &"SecondaryLabel"
+text = "See how your tenant reacts"
+horizontal_alignment = 1

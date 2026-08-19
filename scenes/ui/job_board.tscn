@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://fjwi2m8jmkf3"]
+
+[ext_resource type="Script" uid="uid://ofq6xbddqoo2" path="res://scripts/ui/job_board.gd" id="1_wxaeb"]
+[ext_resource type="Script" uid="uid://bsgelr4ksddyw" path="res://scripts/ui/button_juice.gd" id="2_fwgwv"]
+[ext_resource type="Texture2D" uid="uid://6yj76vbr13kq" path="res://assets/UI Assets/Enchanted Tavern Bulletin Board.png" id="2_mi06q"]
+
+[node name="JobBoard" type="Control" unique_id=505554380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wxaeb")
+
+[node name="BoardBackground" type="TextureRect" parent="." unique_id=442155500]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("2_mi06q")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1774679629]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.12)
+
+[node name="RequestList" type="Control" parent="." unique_id=980591360]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="." unique_id=1602572243]
+visible = false
+layout_mode = 0
+anchor_left = 0.25
+anchor_top = 0.01
+anchor_right = 0.75
+anchor_bottom = 0.05
+text = "REQUEST BOARD"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="." unique_id=1291129913]
+visible = false
+layout_mode = 0
+anchor_left = 0.2
+anchor_top = 0.05
+anchor_right = 0.8
+anchor_bottom = 0.08
+theme_type_variation = &"SecondaryLabel"
+text = "Choose which monster's housing request to accept."
+horizontal_alignment = 1
+
+[node name="AcceptButton" type="Button" parent="." unique_id=1930161061]
+layout_mode = 0
+anchor_left = 0.855
+anchor_top = 0.1
+anchor_right = 0.985
+anchor_bottom = 0.965
+theme_type_variation = &"MenuHitboxButton"
+disabled = true
+script = ExtResource("2_fwgwv")
+
+[node name="BackButton" type="Button" parent="." unique_id=389308452]
+layout_mode = 0
+anchor_left = 0.838
+anchor_top = 0.025
+anchor_right = 0.874
+anchor_bottom = 0.08
+theme_type_variation = &"CloseButton"
+theme_override_font_sizes/font_size = 36
+text = "×"
+script = ExtResource("2_fwgwv")
+
+[node name="DetailLabel" type="RichTextLabel" parent="." unique_id=896743835]
+visible = false
+layout_mode = 0
+anchor_left = 0.855
+anchor_top = 0.1
+anchor_right = 0.985
+anchor_bottom = 0.62
+offset_left = 16.0
+offset_top = 14.0
+offset_right = -16.0
+offset_bottom = -10.0
+mouse_filter = 2
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="RequirementsLabel" type="RichTextLabel" parent="." unique_id=1441258813]
+visible = false
+layout_mode = 0
+anchor_left = 0.855
+anchor_top = 0.63
+anchor_right = 0.985
+anchor_bottom = 0.735
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+mouse_filter = 2
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="LikesLabel" type="RichTextLabel" parent="." unique_id=2109595275]
+visible = false
+layout_mode = 0
+anchor_left = 0.855
+anchor_top = 0.745
+anchor_right = 0.985
+anchor_bottom = 0.85
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+mouse_filter = 2
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="HatesLabel" type="RichTextLabel" parent="." unique_id=1636934519]
+visible = false
+layout_mode = 0
+anchor_left = 0.855
+anchor_top = 0.86
+anchor_right = 0.985
+anchor_bottom = 0.965
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+mouse_filter = 2
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1

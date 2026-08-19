@@ -1,0 +1,84 @@
+extends Node3D
+## Ambient life for the room: flickering torches, a lightly swaying chain,
+## and slow-drifting dust motes. Purely cosmetic and additive -- reads
+## existing dressing nodes by relative path and does nothing if it can't
+## find them, so it never touches RoomEditor / RoomSimulator / props /
+## GameManager. Safe to leave running through build mode too, since it
+## never affects placement, collisions, or scoring.
+
+@export var dressing_path: NodePath = ^"../GoblinMapDressing/GoblinRoom"
+
+var _rng := RandomNumberGenerator.new()
+
+
+func _ready() -> void:
+	_rng.randomize()
+	var dressing: Node = get_node_or_null(dressing_path)
+	if dressing == null:
+		return
+
+	for flame_path in [
+		"GR_Torch_Crooked/GR_Torch_Crooked_Flame",
+		"GR_Torch_Door/GR_Torch_Door_Flame",
+	]:
+		var flame: MeshInstance3D = dressing.get_node_or_null(flame_path)
+		if flame:
+			_flicker_loop(flame)
+
+	var chain: Node3D = dressing.get_node_or_null("GR_Chain")
+	if chain:
+		_sway_loop(chain)
+
+	_spawn_dust()
+
+
+## Small, continuous scale jitter on the flame mesh to fake a flicker
+## without needing a shader or a real light node.
+func _flicker_loop(flame: MeshInstance3D) -> void:
+	var base_scale: Vector3 = flame.scale
+	var tw := create_tween().set_loops()
+	tw.tween_property(flame, "scale", base_scale * _rng.randf_range(0.9, 0.96), _rng.randf_range(0.08, 0.16)).set_trans(Tween.TRANS_SINE)
+	tw.tween_property(flame, "scale", base_scale * _rng.randf_range(1.03, 1.1), _rng.randf_range(0.08, 0.16)).set_trans(Tween.TRANS_SINE)
+	tw.tween_property(flame, "scale", base_scale, _rng.randf_range(0.08, 0.16)).set_trans(Tween.TRANS_SINE)
+
+
+## Very slow pendulum sway on the hanging chain.
+func _sway_loop(chain: Node3D) -> void:
+	var base_z: float = chain.rotation.z
+	var tw := create_tween().set_loops()
+	tw.tween_property(chain, "rotation:z", base_z + deg_to_rad(2.5), 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(chain, "rotation:z", base_z - deg_to_rad(2.5), 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(chain, "rotation:z", base_z, 1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+## Faint, slow-drifting motes catching the torchlight. Built entirely in
+## code so it doesn't depend on any external texture asset.
+func _spawn_dust() -> void:
+	var particles := CPUParticles3D.new()
+	particles.name = "DustMotes"
+	particles.amount = 22
+	particles.lifetime = 7.0
+	particles.emitting = true
+	particles.local_coords = false
+	particles.direction = Vector3(0, 1, 0)
+	particles.spread = 180.0
+	particles.gravity = Vector3(0, 0.02, 0)
+	particles.initial_velocity_min = 0.02
+	particles.initial_velocity_max = 0.07
+	particles.scale_amount_min = 0.6
+	particles.scale_amount_max = 1.4
+	particles.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+	particles.emission_box_extents = Vector3(3.2, 1.1, 3.2)
+	particles.position = Vector3(0, 1.3, 0)
+
+	var quad := QuadMesh.new()
+	quad.size = Vector2(0.02, 0.02)
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.albedo_color = Color(1.0, 0.92, 0.78, 0.3)
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	quad.material = mat
+	particles.mesh = quad
+
+	add_child(particles)

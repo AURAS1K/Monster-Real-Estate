@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bd5d0n3u06qmv"]
+
+[ext_resource type="PackedScene" uid="uid://cperk7rn7og1x" path="res://assets/props/Assets.glb" id="1_q2yty"]
+[ext_resource type="Script" uid="uid://dtfkubpe6vgdx" path="res://scripts/room/asset_wrapper.gd" id="1_t4c4d"]
+
+[node name="BarrelVisual" type="Node3D" unique_id=1633235077]
+script = ExtResource("1_t4c4d")
+keep_node_name = "Barrel"
+
+[node name="Assets" parent="." unique_id=56868293 instance=ExtResource("1_q2yty")]
